@@ -1,0 +1,23 @@
+plugins {
+    //trick: for the same plugin versions in all sub-modules
+    alias(libs.plugins.androidApplication).apply(false)
+    alias(libs.plugins.androidLibrary).apply(false)
+    alias(libs.plugins.kotlinAndroid).apply(false)
+    alias(libs.plugins.kotlinMultiplatform).apply(false)
+    alias(libs.plugins.compose.compiler).apply(false)
+}
+
+buildscript {
+    repositories {
+        google()  // For Android Gradle Plugin
+        mavenCentral() // For Decompose and other libraries
+    }
+    // ... other buildscript configurations
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
