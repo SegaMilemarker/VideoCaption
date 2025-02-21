@@ -28,9 +28,7 @@ kotlin {
             isStatic = true
             export(libs.decompose)
             export(libs.essenty.lifecycle)
-
-            // Optional, only if you need state preservation on Darwin (Apple) targets
-            export(libs.essenty.stateKeeper)
+            export(libs.essenty.stateKeeper) // Optional, only if you need state preservation on Darwin (Apple) targets
         }
     }
 
@@ -38,17 +36,15 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.datetime)
-
                 api(libs.decompose)
                 api(libs.kotlinx.coroutines.core)
                 api(libs.reaktive.reaktive)
                 api(libs.kotlinx.kotlinxSerializationJson)
                 api(libs.kotlinx.kotlinxSerializationCore)
-
                 api(libs.essenty.lifecycle)
                 api(libs.essenty.stateKeeper)
-                // Add other common dependencies here
 
+                // Ktor dependencies
                 implementation(libs.ktor.client.core)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
@@ -56,35 +52,28 @@ kotlin {
             }
         }
 
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        val commonTest by getting {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
         }
 
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-
-//        val iosMain by creating {
-//            dependsOn(commonMain)
-//            iosX64Main.dependsOn(this)
-//            iosArm64Main.dependsOn(this)
-//            iosSimulatorArm64Main.dependsOn(this)
-//        }
-
         val iosMain by creating {
+            dependsOn(commonMain)
             dependencies {
-                api(libs.decompose)
-                api(libs.kotlinx.coroutines.core)
-                api(libs.reaktive.reaktive)
-                api(libs.kotlinx.kotlinxSerializationJson)
-                api(libs.kotlinx.kotlinxSerializationCore)
-
-                api(libs.essenty.lifecycle)
-                api(libs.essenty.stateKeeper)
                 api(libs.essenty.instanceKeeper)
-
                 implementation(libs.ktor.client.darwin)
             }
+        }
+
+        iosX64Main {
+            dependsOn(iosMain)
+        }
+        iosArm64Main {
+            dependsOn(iosMain)
+        }
+        iosSimulatorArm64Main {
+            dependsOn(iosMain)
         }
     }
 }

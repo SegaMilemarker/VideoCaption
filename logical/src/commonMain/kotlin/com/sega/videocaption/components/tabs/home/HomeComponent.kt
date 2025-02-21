@@ -21,6 +21,12 @@ interface HomeComponent : BackHandlerOwner {
 
         val listMovie: List<MovieDetail> = emptyList()
     )
+
+    @Serializable
+    data class Section (
+        val tab: HomeMovieCategory,
+        val movies: List<MovieDetail>?
+    )
 }
 
 

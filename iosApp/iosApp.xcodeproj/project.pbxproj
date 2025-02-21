@@ -19,6 +19,7 @@
 		8A1DA5422D5F3678006C6DD2 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DA5412D5F3678006C6DD2 /* SplashView.swift */; };
 		8A1DA5452D5F373A006C6DD2 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DA5442D5F373A006C6DD2 /* TabsView.swift */; };
 		8A1DA5482D5F3CEC006C6DD2 /* IntExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1DA5472D5F3CEA006C6DD2 /* IntExt.swift */; };
+		8AEAC8A72D686C79008A3A9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEAC8A62D686C79008A3A9E /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		8A1DA5412D5F3678006C6DD2 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		8A1DA5442D5F373A006C6DD2 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		8A1DA5472D5F3CEA006C6DD2 /* IntExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExt.swift; sourceTree = "<group>"; };
+		8AEAC8A62D686C79008A3A9E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		8A1DA5432D5F372D006C6DD2 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				8AEAC8A52D686C68008A3A9E /* Home */,
 				8A1DA5442D5F373A006C6DD2 /* TabsView.swift */,
 			);
 			path = Tabs;
@@ -160,6 +163,14 @@
 				8A1DA5472D5F3CEA006C6DD2 /* IntExt.swift */,
 			);
 			path = Ext;
+			sourceTree = "<group>";
+		};
+		8AEAC8A52D686C68008A3A9E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8AEAC8A62D686C79008A3A9E /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 				8A1DA5422D5F3678006C6DD2 /* SplashView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				8A1DA5332D5EEC01006C6DD2 /* MutableValue.swift in Sources */,
+				8AEAC8A72D686C79008A3A9E /* HomeView.swift in Sources */,
 				8A1DA5372D5F001D006C6DD2 /* SimpleStackChild.swift in Sources */,
 				8A1DA5352D5EFF3F006C6DD2 /* ObservableValue.swift in Sources */,
 				8A1DA5452D5F373A006C6DD2 /* TabsView.swift in Sources */,

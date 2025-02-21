@@ -33,7 +33,7 @@ struct TabsView: View {
     
     var body: some View {
         TabView(selection: $selectedIndex) {
-            HomeView()
+            HomeView(<#any HomeComponent#>)
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
@@ -73,17 +73,6 @@ struct TabsView: View {
                 print("Set index \(newIndex)")
             }
         )
-    }
-}
-
-struct HomeView: View {
-    var body: some View {
-        VStack {
-            Text("Home")
-                .font(.largeTitle)
-                .padding()
-            Spacer()
-        }
     }
 }
 
