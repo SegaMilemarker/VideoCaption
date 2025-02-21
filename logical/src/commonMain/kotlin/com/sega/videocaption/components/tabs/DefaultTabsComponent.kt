@@ -20,7 +20,7 @@ class DefaultTabsComponent(
         childStack(
             source = navigation,
             serializer = Config.serializer(),
-            initialConfiguration = Config.Home,
+            initialConfiguration = Config.fromIndex(tabIndex),
             handleBackButton = true,
             childFactory = ::createChild
         )
@@ -32,17 +32,23 @@ class DefaultTabsComponent(
             AppTab.HOME -> Config.Home
             AppTab.FEEDS -> Config.Feeds
             AppTab.SETTINGS -> Config.Settings
-            else -> throw IllegalArgumentException("Invalid tab index")
         }
 
         navigation.bringToFront(config)
     }
 
-    private fun createChild(config: Config, componentContext: ComponentContext): TabsComponent.Child =
+    private fun createChild(
+        config: Config,
+        componentContext: ComponentContext
+    ): TabsComponent.Child =
         when (config) {
             is Config.Home -> TabsComponent.Child.HomeChild(DefaultHomeComponent(componentContext))
             is Config.Feeds -> TabsComponent.Child.FeedsChild(DefaultFeedsComponent(componentContext))
-            is Config.Settings -> TabsComponent.Child.SettingsChild(DefaultSettingsComponent(componentContext))
+            is Config.Settings -> TabsComponent.Child.SettingsChild(
+                DefaultSettingsComponent(
+                    componentContext
+                )
+            )
         }
 
     @Serializable
@@ -55,5 +61,16 @@ class DefaultTabsComponent(
 
         @Serializable
         data object Settings : Config()
+
+        companion object {
+            fun fromIndex(index: Int): Config {
+                return when (index) {
+                    0 -> Home
+                    1 -> Feeds
+                    2 -> Settings
+                    else -> throw IllegalArgumentException("Invalid tab index")
+                }
+            }
+        }
     }
 }

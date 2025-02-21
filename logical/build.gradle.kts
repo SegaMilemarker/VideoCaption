@@ -37,6 +37,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(libs.kotlinx.datetime)
+
                 api(libs.decompose)
                 api(libs.kotlinx.coroutines.core)
                 api(libs.reaktive.reaktive)
@@ -48,6 +50,9 @@ kotlin {
                 // Add other common dependencies here
 
                 implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.client.logging)
             }
         }
 
